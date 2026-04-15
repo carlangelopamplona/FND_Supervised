@@ -1,40 +1,46 @@
 # FND_Supervised
 
-## Study Recreation
+## Study Replication
 
-This repository is a recreation of the study:
+This project replicates the study:
 
 **"Machine Learning Methodologies for Predicting Fake News on Social Media X: A Comparative Investigation over TruthSeeker Dataset"**
 
-The goal of this project is to reproduce the study workflow on the TruthSeeker dataset, generate the same style of evaluation artifacts, and compare model behavior under a unified pipeline.
+The pipeline reproduces the study workflow on the TruthSeeker dataset, generates study-style artifacts, and reports model performance with a single execution path.
+
+## Replicated Study Citation
+
+- Authors: Happy, Asif Iqubal, Subodh Kant Tiwari, Mithun Kumar Paswan, Sikander Azad, Pragti
+- DOI: https://doi.org/10.1109/iccsc62048.2024.10830410
+- IEEE Xplore: https://ieeexplore.ieee.org/document/10830410
 
 ## Dataset
 
-The project uses the TruthSeeker dataset files available in this repository:
+The repository includes these TruthSeeker files:
 
 - `TruthSeeker2023/Truth_Seeker_Model_Dataset.csv`
 - `TruthSeeker2023/Features_For_Traditional_ML_Techniques.csv`
 
-In pipeline execution, the processed feature file is expected at:
+Pipeline runs use this processed feature file:
 
 - `data/Features_For_Traditional_ML_Techniques.csv`
 
-The target label is `BinaryNumTarget` where:
+Target label:
 
 - `0` = Fake news
 - `1` = Real news
 
-Primary text inputs used for modeling:
+Model text inputs:
 
 - `statement`
 - `tweet`
 
 ## Step-by-Step Methodology
 
-The implemented recreation follows the study-style sequence below.
+The implementation follows this sequence.
 
 1. **Load and sanitize data**
-   - Load dataset and keep required text columns plus target.
+   - Load the dataset and keep required text columns plus target.
    - Fill missing text cells with empty strings.
    - Remove rows with missing target values.
 
@@ -43,7 +49,7 @@ The implemented recreation follows the study-style sequence below.
    - Oversample minority class with replacement to match majority count.
 
 3. **Feature transformation**
-   - Concatenate `statement` and `tweet` text.
+   - Concatenate `statement` and `tweet`.
    - Apply TF-IDF vectorization with `max_features = 1064`.
 
 4. **Pre-training artifact generation**
@@ -55,10 +61,10 @@ The implemented recreation follows the study-style sequence below.
    - Save classifier setup table.
 
 5. **Train/test split**
-   - Perform stratified split with `test_size = 0.20`.
+   - Run stratified split with `test_size = 0.20`.
 
 6. **Model training and evaluation**
-   - Train model profiles labeled as `LR`, `RF`, `GB`, `MLP`, `DT`, `K-NN`, `NB`.
+   - Train model profiles labeled `LR`, `RF`, `GB`, `MLP`, `DT`, `K-NN`, `NB`.
    - Compute performance metrics:
      - Accuracy (`ACC`)
      - Precision (`PRE`)
@@ -74,7 +80,7 @@ The implemented recreation follows the study-style sequence below.
 
 ## Run Instructions
 
-Create and activate a Python virtual environment, install dependencies, then run the study pipeline:
+Run these commands:
 
 ```powershell
 python -m venv venv
@@ -85,8 +91,8 @@ python src/main.py --mode study --skip-download --clear-outputs
 
 Notes:
 
-- `--skip-download` assumes the dataset files are already present.
-- `--clear-outputs` removes previous files in `outputs/results` and `outputs/figures`.
+- `--skip-download` expects dataset files to already exist.
+- `--clear-outputs` removes existing files in `outputs/results` and `outputs/figures`.
 
 ## Generated Outputs
 
@@ -126,4 +132,4 @@ Notes:
 - `data/` - local working dataset files
 - `outputs/results/` - generated CSV result tables
 - `outputs/figures/` - generated figures
-- `TruthSeeker2023/` - included source dataset files
+- `TruthSeeker2023/` - source dataset files included in this repository
