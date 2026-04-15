@@ -1,0 +1,18 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local data artifacts
+data/
+TruthSeeker2023/
+outputs/results/*.pkl
+outputs/results/*.npy
+outputs/figures/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/

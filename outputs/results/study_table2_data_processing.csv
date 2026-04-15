@@ -1,0 +1,5 @@
+Stage,Samples,Features,Class 1 (True),Class 0 (Fake),Missing Cells,Duplicate Rows
+Raw Dataset,134198,64,68930,65268,0,0
+After Sanitization,134198,3,68930,65268,0,0
+After Oversampling,137860,3,68930,68930,0,0
+After TF-IDF,137860,1064,68930,68930,0,0
